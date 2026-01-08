@@ -19,11 +19,19 @@ pip install -r requirements.txt
 
 ## Running the Application
 
+### Development Mode (Default)
 ```bash
 python app.py
 ```
 
 The application will be available at `http://localhost:5000`
+
+**Note**: The application runs in debug mode by default, which is suitable for development and testing. For production deployment, use a production-ready WSGI server like Gunicorn:
+
+```bash
+pip install gunicorn
+gunicorn -w 4 -b 0.0.0.0:5000 app:app
+```
 
 ## How to Use
 

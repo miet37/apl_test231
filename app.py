@@ -4,7 +4,8 @@ import string
 
 app = Flask(__name__)
 
-# Store used letters in memory
+# Store used letters in memory (shared across all users - for single-user demo)
+# For multi-user scenarios, use Flask sessions or database
 used_letters = []
 
 HTML_TEMPLATE = '''
@@ -230,4 +231,5 @@ def reset():
     })
 
 if __name__ == '__main__':
+    # Development server - for production, use a WSGI server like gunicorn
     app.run(debug=True, host='0.0.0.0', port=5000)
